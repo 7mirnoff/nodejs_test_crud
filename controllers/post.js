@@ -1,9 +1,10 @@
-import PostService from './post-service.js'
+import PostService from '../post-service.js'
 
-class PostController {
+class Post {
   async create (req, res) {
     try {
       const post = await PostService.create(req.body, req.files.picture)
+      console.log(req)
       res.json(post)
     } catch (e) {
       res.status(500).json(e)
@@ -47,4 +48,4 @@ class PostController {
   }
 }
 
-export default new PostController()
+export default new Post()

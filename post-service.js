@@ -1,4 +1,4 @@
-import Post from './post.js'
+import Post from './models/post.js'
 import fileService from './file-service.js'
 
 class PostService {
@@ -17,6 +17,7 @@ class PostService {
     if (!id) {
       throw new Error('не указан id')
     }
+
     const post = await Post.findById(id)
     return post
   }
