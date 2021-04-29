@@ -1,5 +1,5 @@
-import Post from './models/post.js'
-import fileService from './file-service.js'
+import Post from '../models/post.js'
+import fileService from './file.js'
 
 class PostService {
   async create (post, picture) {

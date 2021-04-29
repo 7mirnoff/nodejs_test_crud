@@ -3,7 +3,8 @@ import express from 'express'
 import mongoose from 'mongoose'
 import fileUpload from 'express-fileupload'
 
-import post from './routes/post.js'
+import postRouter from './routes/post.js'
+import authRouter from './routes/auth.js'
 
 dotenv.config()
 const PORT = process.env.PORT || 5000
@@ -16,7 +17,8 @@ const app = express()
 app.use(express.json())
 app.use(express.static('static'))
 app.use(fileUpload({}))
-app.use('/api', post)
+app.use('/api', postRouter)
+app.use('/auth', authRouter)
 
 async function startApp () {
   try {
