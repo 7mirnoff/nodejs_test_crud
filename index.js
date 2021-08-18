@@ -20,6 +20,10 @@ app.use(fileUpload({}))
 app.use('/api', postRouter)
 app.use('/auth', authRouter)
 
+mongoose.set('useNewUrlParser', true)
+mongoose.set('useFindAndModify', false)
+mongoose.set('useCreateIndex', true)
+
 async function startApp () {
   try {
     await mongoose.connect(DB_CONNECT, {
